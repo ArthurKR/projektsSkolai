@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useNavigate } from "react-router-dom";
+import "./home.css"
+import HomeFlyer from "./HomeFlyer";
 function App() {
+
+  const navigate = useNavigate();
+
+  function redirectP() {
+    navigate("/pieslegties")
+  }
+
+  function redirectD() {
+    navigate("/dati")
+  }
+
+  function sudzibas() {
+    navigate("/sudzibas")
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <>
+
+      <HomeFlyer />
+
+      <div className="div2">
+        <h1 className="div2-headline">
+          Ko Tu vēlies darīt <br />
+          šodien?
+        </h1>
+        <p className="div2-subheadline">
+          Piekļūsti savas skolas laboratorijai vai aplūko publiski pieejamo <br />
+          informāciju un datus par laboratoriju
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <div className="div2-buttondiv">
+          <span>
+            <button type="button" onClick={redirectP} className="div2-button1 " >Pieslēgties</button>
+          </span>
+          <span>
+            <button type="button" onClick={redirectD} className="div2-button2">Piekļūt publiskiem datiem</button>
+          </span>
+        </div>
+        <div className="div2-buttondiv2">
+          <button className="div2-button3" onClick={sudzibas}>
+            Ziņot Par Kļūdu
+          </button>
+        </div>
+      </div>
+
+
+
+    </>
   );
 }
 
