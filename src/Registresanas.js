@@ -37,19 +37,22 @@ export default function () {
 
     }
 
+
+    function validateEmail(email) {
+        let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.match(mailFormat)) {
+            return true;
+        }
+        return false;
+    }
+
     useEffect(() => {
         if (confirmation !== password) {
             document.getElementById("submit").disabled = true;
         } else {
 
-            let user = {
-                "name": username,
-                "password": password
-            }
-            if (password !== "" && username !== "") {
-                localStorage.setItem("user", JSON.stringify(user));
-                document.getElementById("submit").disabled = false;
-            }
+            document.getElementById("submit").disabled = false;
+
         }
     }, [confirmation, password])
 
@@ -88,7 +91,17 @@ export default function () {
                     </label>
                     <br />
                     <br />
-                    <button type="submit" className='div2-button1' id="submit">Reģistrēties</button>
+                    <button type="submit" className='div2-button1' id="submit" onClick={() => {
+                        if (password !== "" && username !== "" && validateEmail(email)) {
+                            let user = {
+                                "name": username,
+                                "password": password
+                            }
+
+                            localStorage.setItem("user", JSON.stringify(user));
+                            document.getElementById("submit").disabled = false;
+                        }
+                    }}>Reģistrēties</button>
 
                 </form>
 

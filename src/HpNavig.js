@@ -9,7 +9,7 @@ export default function HpNavig() {
     }
 
     return (
-        <div style={{ position: "absolute", top: "5%" }}>
+        <div style={{ position: "relative", top: "5%" }}>
             <button type="button" onClick={backToHome} style={{ backgroundColor: "rgb(255, 255, 255)", border: "none", }}>
                 ← Atpakaļ uz sākumlapu
             </button>

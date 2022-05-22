@@ -35,6 +35,7 @@ export default function TEST() {
             let objParsed = JSON.parse(obj);
 
             if (obj !== null) {
+
                 setRegistered(true);
             }
 
@@ -46,6 +47,7 @@ export default function TEST() {
         } catch (error) {
             setRegistered(false);
         } finally {
+
             if (!registered && errormsg) {
                 navigate("/registresanas")
             }
